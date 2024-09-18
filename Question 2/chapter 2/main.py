@@ -3,9 +3,10 @@ from string_operations import separate_string
 from decryption import decrypt, find_shift_key
 from ascii_conversions import convert_even_numbers, convert_uppercase_letters
 
+
 def main():
     # Example input string
-    s = '56aAww1984sktr235270aYmn145ss785fsq31D0'
+    s = "56aAww1984sktr235270aYmn145ss785fsq31D0"
 
     print("Given String:", s)
     # Separate the string into numbers and letters
@@ -37,6 +38,7 @@ def main():
     print(f"\nFound shift key: {shift_key}")
     print("Decrypted text:")
     print(decrypted_text)
+
 
 # Ensure the main function only runs if this script is executed directly
 if __name__ == "__main__":

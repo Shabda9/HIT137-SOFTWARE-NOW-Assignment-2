@@ -9,20 +9,41 @@ def decrypt(ciphertext, shift):
             plaintext += decrypted_char
         else:
             # Keep non-alphabetic characters unchanged
-            plaintext += char
+            plaintext = plaintext + char
+            # return plaintext
     return plaintext
+
 
 def score_text(text):
     # List of common English words to check for
-    common_words = set(['THE', 'BE', 'TO', 'OF', 'AND', 'IN', 'THAT', 'HAVE', 'IT', 'FOR', 'YOU', 'WITH', 'ON', 'AT'])
+    common_words = set(
+        [
+            "THE",
+            "BE",
+            "TO",
+            "OF",
+            "AND",
+            "IN",
+            "THAT",
+            "HAVE",
+            "IT",
+            "FOR",
+            "YOU",
+            "WITH",
+            "ON",
+            "AT",
+        ]
+    )
     # Split the text into words and convert to uppercase
     words = text.upper().split()
     # Count how many common words appear in the text
     return sum(word in common_words for word in words)
 
+
 def find_shift_key(ciphertext):
-    best_score = 0
-    best_shift = 0
+    best_score = 0  # initialize best_score value as 0
+    best_shift = 0  # initialize best_shift value as 0
+
     # Try all possible shift values (0-25)
     for shift in range(26):
         # Decrypt the text with the current shift
@@ -33,4 +54,5 @@ def find_shift_key(ciphertext):
         if score > best_score:
             best_score = score
             best_shift = shift
+        # return the best_shift value
     return best_shift
